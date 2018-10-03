@@ -1,0 +1,36 @@
+file_name = 'example.txt'
+with open('file_name','w') as write_file:
+    lines=['fast ethernet 0/1\n','gigabit ethernet 0/1\n']
+    write_file.writelines(lines)
+
+#Converting the First letter of the word to Upper Case
+s = 'fast ethernet0/1'
+list = [word[0].upper() + word[1:] for word in s.split()]
+print (" ".join(list))
+
+
+s ="fast ethernet0/1"
+print (s.split())
+
+# Logging in to all the file in the directory and removing a text and updating the file again
+import os
+
+def remove_word (file_name, text):
+    lines =[]
+    new_lines=[]
+
+    with open (file_name, 'r')as read_file:
+        lines = read_file.readlines()
+
+    for line in lines:
+        if text not in line:
+            new_lines.append(line)
+
+    with open (file_name, 'w') as write_file:
+        for line in new_lines:
+            write_file.write(line)
+
+files_in_dir= os.listdir('./')
+for files in files_in_dir:
+    remove_word(files, 'arearama')
+

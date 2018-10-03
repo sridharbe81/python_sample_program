@@ -1,0 +1,40 @@
+
+def decorator(original_function):
+    def wrapper_function():
+        print("Decoration started")
+        x = original_function()
+        print("Decoration Ended",'\n')
+        return x
+    return wrapper_function
+
+@decorator
+def Kidsroom():
+    print("Kids Room")
+
+@decorator
+def parentroom():
+    print("Parent Room")
+
+Kidsroom()
+parentroom()
+
+
+def decorator1(original_function):
+    def wrapper_function(*args):
+        print("Deocoration before adding")
+        x = original_function(*args)
+        print(x)
+        print("Deooration after adding", '\n')
+        return x
+    return wrapper_function
+
+
+@decorator1
+def sum(*args):
+    total = 0
+    for i in args:
+        total = total + i
+    return total
+
+sum(10,20,30)
+sum(10, 20)

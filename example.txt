@@ -1,0 +1,2 @@
+fast ethernet0/1
+gigabit ethernet0/1
